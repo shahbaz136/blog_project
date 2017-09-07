@@ -8,8 +8,8 @@
 	source env/bin/activate
 
 4. Clone the repo using command:
-	git clone https://itscoolak@bitbucket.org/kritisoftwaresolutions/social_media_services.git
-
+	git clone git clone https://github.com/shahbaz136/blog_project.git
+	
 5. create "variables.env" in root directory and put value of following fileds:
 	ENGINE=django.db.backends.postgresql
 	DB_NAME=
