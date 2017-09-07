@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+    	<h1>Add New post</h1>
+        <form method="POST" class="article-form">{% csrf_token %}
+            <strong>{{ form.as_p }}</strong>
+            <button style="size: 24px" type="submit" class="save btn btn-default">Submit</button>
+        </form>
+    {% else %}
+        <p style="font-size: 20px"><a href="/accounts/login"> Please login </a>to post an article.</p>
+    {% endif %}
+</body>
+</html>
+
+

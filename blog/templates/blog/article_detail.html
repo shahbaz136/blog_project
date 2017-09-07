@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+        <style type="text/css">
+            .fsSubmitButton
+                        {
+                        padding: 4px 6px 5px !important;
+                        font-size: 18px !important;
+                        background-color: #6B7BD5;
+                        font-weight: bold;
+                        text-shadow: 1px 1px #57D6C7;
+                        color: #ffffff;
+                        border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        border: 1px solid #57D6C7;
+                        cursor: pointer;
+                        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        }
+
+        </style>
+</head>
+<body>
+	<div class="article">
+        
+        <h1 style="color: blue">{{ article.title }}</h1>
+        <p style="font-size: 20px">{{ article.body }}</p>
+        <p style="font-size: 18px"><i>published by: <strong>{{ article.author }}</strong></i></p>
+        {% if article.created %}
+            <div class="date">
+                <p style="font-size: 18px"><i>published: {{ article.created }}</i></p>
+            </div>
+        {% endif %}
+    </div>
+
+    <h2>Comments</h2>
+    {% for comment in comments %}
+	    <div class="comment">
+
+	        <p style="font-size: 18px"><strong><i>{{ comment.users__username }}-: </i></strong>{{ comment.text }}</p>
+	    </div>
+	{% empty %}
+	    <p style="font-size: 18px">No comments here yet :(</p>
+	{% endfor %}
+
+    <a class=fsSubmitButton href="{% url 'add_comment_to_article' pk=article.pk %}">Add comment</a>
+	
+
+</body>
+</html>
+
+

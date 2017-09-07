@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>SZ's blog</title>
+        <style type="text/css">
+            .fsSubmitButton
+                        {
+                        padding: 10px 15px 11px !important;
+                        font-size: 18px !important;
+                        background-color: #6B7BD5;
+                        font-weight: bold;
+                        text-shadow: 1px 1px #57D6C7;
+                        color: #ffffff;
+                        border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        border: 1px solid #57D6C7;
+                        cursor: pointer;
+                        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        }
+
+            .text {
+                    display: block;
+                    width:1250px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <form method="get" action="/blog/article/new">
+            <button class= "fsSubmitButton" type="submit">Post An Article</button>
+        </form>
+
+    	{% for article in articles %}
+
+        	<div class="article">
+                    
+                   	<h1><a href="{% url 'article_detail' pk=article.pk %}">{{ article.title }}</a></h1>
+                    <p style="font-size: 18px" class="text" >{{ article.body }}</p>
+                    <div class="date">
+                        <p style="font-size: 18px"><i>published: {{ article.created }}</i></p>
+                    </div>
+        			
+            </div>
+
+    	{% endfor %}
+    </body>
+</html>

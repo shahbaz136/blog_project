@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <style type="text/css">
+            .fsSubmitButton
+                        {
+                        padding: 4px 6px 5px !important;
+                        font-size: 18px !important;
+                        background-color: #6B7BD5;
+                        font-weight: bold;
+                        text-shadow: 1px 1px #57D6C7;
+                        color: #ffffff;
+                        border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        border: 1px solid #57D6C7;
+                        cursor: pointer;
+                        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+                        }
+
+        </style>
+</head>
+<body>
+
+
+	{% if request.user.is_authenticated %}
+	<h1>Add New comment</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        <h2> {{ form.as_p }}</h2>
+        <button class='fsSubmitButton' type="submit" class="save btn btn-default">Submit</button>
+    </form>
+    {% else %}
+    	<p style="font-size: 20px"><a href="/accounts/login"> Please login </a> to comment on this article.</p>
+
+	{% endif %}
+
+</body>
+</html>
+
+
+
+
